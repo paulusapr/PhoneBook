@@ -6,17 +6,15 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
+    '^.+\\.(ts|tsx)$': ['ts-jest', {
+      babel: true,
+      tsconfig: 'tsconfig.jest.json'
+    }]
   },
   testMatch: [
     '**/*.(test|spec).(ts|tsx)'
   ],
   testPathIgnorePatterns: ['./node_modules/', '.husky'],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.jest.json'
-    },
-  },
   moduleDirectories: ["node_modules", "app"],
   setupFilesAfterEnv: ['@testing-library/jest-dom']
 };

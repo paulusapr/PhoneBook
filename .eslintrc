@@ -12,7 +12,8 @@
     "@typescript-eslint/no-var-requires": 0,
     "react-hooks/exhaustive-deps": "off",
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "off"
   },
   "settings": {
     "react": {

@@ -1,7 +1,7 @@
 ![Landing Screenshot](public/next.svg)
 
 ## Homepage
-[https://phone-book-coral.vercel.app/](https://phone-book-coral.vercel.app/)
+[DEMO](https://phone-book-coral.vercel.app/)
 
 ## Features
 1. Phone Book

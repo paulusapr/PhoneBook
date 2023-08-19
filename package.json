@@ -2,19 +2,63 @@
   "name": "phonebook",
   "version": "0.1.0",
   "private": true,
+  "author": "Paulus Apriyanto <paulus.apr@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "prepare": "husky install",
+    "test": "jest --coverage -u"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.1",
+    "@apollo/react-testing": "^4.0.0",
+    "@emotion/css": "^11.11.2",
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "axios": "^1.4.0",
+    "graphql": "^16.8.0",
     "next": "13.4.18",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-toastify": "^9.1.3",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.0.1",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.3",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "babel-jest": "^29.6.2",
+    "canvas": "^2.11.2",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^8.0.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.2",
+    "lint-staged": "^14.0.0",
+    "prettier": "^3.0.2",
+    "react-test-renderer": "^18.2.0",
+    "ts-jest": "^29.1.1",
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1"
+  },
+  "lint-staged": {
+    "*.{js, jsx, ts, tsx}": [
+      "eslint --cache --fix"
+    ],
+    "*.{css, scss, md, html}": [
+      "prettier --write"
+    ]
   }
 }

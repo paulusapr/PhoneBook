@@ -1,0 +1,9 @@
+build
+.git
+Dockerfile
+.husky
+node_modules
+.env
+.env.local
+.dockerignore
+.gitignore

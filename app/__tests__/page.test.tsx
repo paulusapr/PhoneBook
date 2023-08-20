@@ -1,8 +1,7 @@
-import { Suspense } from "react";
 import { MockedProvider } from "@apollo/client/testing";
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Home from 'page';
+import HomeContainer from 'containers';
 import { CONTACT_QUERY } from "services/persons";
 
 const mocks = [
@@ -20,12 +19,12 @@ const mocks = [
 
 describe('page test', () => {
   test('should render login container', () => {
-    const { container } = render(<MockedProvider mocks={mocks} addTypename={false}><Home /></MockedProvider>);
+    const { container } = render(<MockedProvider mocks={mocks} addTypename={false}><HomeContainer /></MockedProvider>);
     expect(container.getElementsByTagName('a'));
   });
 
   test('matches snapshot', () => {
-    const tree = renderer.create(<MockedProvider mocks={mocks} addTypename={false}><Suspense fallback={`Loading...`}><Home /></Suspense></MockedProvider>).toJSON();
+    const tree = renderer.create(<MockedProvider mocks={mocks} addTypename={false}><HomeContainer /></MockedProvider>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

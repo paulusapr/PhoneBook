@@ -22,6 +22,7 @@ export const Button = ({ text, onClick, icon }: ButtonProps) => (
     width: 100%;
     height: 100%;
     cursor: pointer;
+    align-items: center;
     position: relative;
     span {
       text-align: center;
@@ -33,6 +34,9 @@ export const Button = ({ text, onClick, icon }: ButtonProps) => (
       padding: unset;
       height: 4px;
       width: 100%;
+    }
+    i {
+      font-size: 2rem;
     }
     &:hover {
       color: #1d66dd;

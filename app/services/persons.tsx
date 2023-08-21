@@ -41,5 +41,5 @@ export type PersonType = {
 };
 
 export const getContact = () => {
-  return query<{ contact: PersonType }>(CONTACT_QUERY);
+  return query<{ contact: PersonType[] }>(CONTACT_QUERY);
 };

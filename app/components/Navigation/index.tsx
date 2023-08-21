@@ -26,10 +26,8 @@ export const Navigation = () => {
         width: 100%;
         position: relative;
       `}>
-        <Button text='test' />
-        <Button text='test' />
-        <Button text='test' />
-        <Button text='test' />
+        <Button text='Contact' icon={<i className='icon ion-ios-contact' />} />
+        <Button text='Favourites' icon={<i className='icon ion-ios-star' />} />
       </div>
     </div>
   );

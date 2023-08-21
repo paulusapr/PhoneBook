@@ -20,7 +20,7 @@ const mocks = [
 describe('page test', () => {
   test('should render login container', () => {
     const { container } = render(<MockedProvider mocks={mocks} addTypename={false}><HomeContainer /></MockedProvider>);
-    expect(container.getElementsByTagName('a'));
+    expect(container.getElementsByTagName('button'));
   });
 
   test('matches snapshot', () => {

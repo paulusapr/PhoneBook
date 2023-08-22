@@ -1,9 +1,9 @@
 import React from 'react'
 import { css } from '@emotion/css';
-import { useHomeContext } from 'containers';
+import { useLayoutContext } from 'components'
 
 export const SearchBar = () => {
-  const { search, setSearch } = useHomeContext();
+  const { search, setSearch } = useLayoutContext();
 
   return (
     <div className={css`

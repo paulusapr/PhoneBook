@@ -5,6 +5,10 @@ import {
   ApolloLink,
   DocumentNode,
   OperationVariables,
+  useMutation,
+  MutationTuple,
+  MutationOptions,
+  UseSuspenseQueryResult,
 } from '@apollo/client'
 import {
   ApolloNextAppProvider,
@@ -43,10 +47,14 @@ export const ApolloWrapper = ({ children }: PropsWithChildren) => {
   )
 }
 
-export function query<T> (gqlQuery: DocumentNode, variables?: OperationVariables) {
+export function query<T> (gqlQuery: DocumentNode, variables?: OperationVariables): UseSuspenseQueryResult<T> {
   const result = useSuspenseQuery<T, OperationVariables>(gqlQuery, {
     variables,
   });
 
   return result;
+}
+
+export function mutation<T, D>(gqlQuery: DocumentNode, options?: MutationOptions<T, D>): MutationTuple<T, D> {
+  return useMutation<T, D>(gqlQuery, options);
 }

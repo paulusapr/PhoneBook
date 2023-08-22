@@ -5,10 +5,11 @@ type ButtonProps = {
   onClick?: () => void;
   text: string;
   icon?: ReactNode | ReactElement;
+  active?: boolean;
 }
 
-export const Button = ({ text, onClick, icon }: ButtonProps) => (
-  <button className={css`
+export const Button = ({ text, onClick, icon, active }: ButtonProps) => (
+  <button className={`${active && 'active'} ${css`
     box-shadow: none;
     outline: none;
     border: none;
@@ -38,7 +39,7 @@ export const Button = ({ text, onClick, icon }: ButtonProps) => (
     i {
       font-size: 2rem;
     }
-    &:hover {
+    &.active, &:hover {
       color: #1d66dd;
       font-weight: 500;
       i {
@@ -53,9 +54,9 @@ export const Button = ({ text, onClick, icon }: ButtonProps) => (
         background: #1d66dd;
       }
     }
-  `} type='button' onClick={onClick}>
+  `}`} type='button' onClick={onClick}>
     {icon}
     <span>{text}</span>
-    <div />
+    {/* <div /> */}
   </button>
 )

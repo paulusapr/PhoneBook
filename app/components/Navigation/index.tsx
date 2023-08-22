@@ -1,8 +1,11 @@
 import React from 'react'
 import { css } from '@emotion/css'
 import { Button } from './Button';
+import { useLayoutContext } from 'components';
 
 export const Navigation = () => {
+  const { id, navigate } = useLayoutContext();
+
   return (
     <div className={css`
       display: flex;
@@ -26,8 +29,8 @@ export const Navigation = () => {
         width: 100%;
         position: relative;
       `}>
-        <Button text='Contact' icon={<i className='icon ion-ios-contact' />} />
-        <Button text='Favourites' icon={<i className='icon ion-ios-star' />} />
+        <Button onClick={() => navigate('/')} active={!id ? true : false} text='Contact' icon={<i className='icon ion-ios-contact' />} />
+        {/* <Button text='Favourites' icon={<i className='icon ion-ios-star' />} /> */}
       </div>
     </div>
   );

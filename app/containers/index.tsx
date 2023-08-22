@@ -1,23 +1,16 @@
-'use client';
-import React, { createContext, useContext, useState, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { css } from '@emotion/css'
-import { Navigation, SearchBar, ContactList } from 'components';
-
-interface HomeType {
-  search: string;
-  setSearch: (search: string) => void;
-}
-
-export const HomeContext = createContext<HomeType>({} as HomeType);
+import { Navigation, SearchBar, ContactList } from 'components'
+import { useLayoutContext } from 'components';
 
 const HomeContainer = () => {
-  const [search, setSearch] = useState<string>('');
+  const { navigate } = useLayoutContext();
 
   return (
-    <HomeContext.Provider value={{ search, setSearch }}>
+    <>
       <SearchBar />
       <Suspense fallback={`Loading...`}><ContactList /></Suspense>
-      <button type='button' className={css`
+      <button type='button' onClick={() => navigate('/add')} className={css`
         outline: none;
         display: flex;
         align-items: center;
@@ -26,7 +19,7 @@ const HomeContainer = () => {
         border: none;
         position: absolute;
         z-index: 3;
-        top: 80%;
+        top: 75%;
         right: 0;
         border-radius: 100px;
         height: 50px;
@@ -40,10 +33,8 @@ const HomeContainer = () => {
         <i className='icon ion-ios-add' />
       </button>
       <Navigation />
-    </HomeContext.Provider>
+    </>
   );
 };
-
-export const useHomeContext = () => useContext(HomeContext);
 
 export default HomeContainer

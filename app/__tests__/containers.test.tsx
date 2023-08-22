@@ -8,6 +8,9 @@ const mocks = [
   {
     request: {
       query: CONTACT_QUERY,
+      variables: {
+        limit: 15, offset: 1, order_by: { created_at: 'desc' }
+      }
     },
     result: {
       data: {

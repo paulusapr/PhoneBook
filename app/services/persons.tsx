@@ -197,3 +197,21 @@ export type AddPhonePayloadTypes = {
 export const addPhoneNumber = () => {
   return mutation<any, AddPhonePayloadTypes>(ADD_PHONE_QUERY);
 };
+
+export const DELETE_CONTACT_QUERY = gql`
+  mutation MyMutation(
+    $id: Int!
+  ) {
+    delete_contact_by_pk(
+      id: $id
+    ) {
+      first_name
+      last_name
+      id
+    }
+  }
+`;
+
+export const deleteContact = () => {
+  return mutation<any, { id: number }>(DELETE_CONTACT_QUERY);
+};

@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react'
 import * as yup from 'yup'
 import { Formik } from 'formik'
 import { css } from '@emotion/css'
-import { addContact, PayloadTypes, editContact, editPhoneNumber, addPhoneNumber } from 'services/persons'
+import { addContact, PayloadTypes, editContact, editPhoneNumber, addPhoneNumber, deleteContact } from 'services/persons'
 import { toast } from 'react-toastify'
 import { useLayoutContext } from 'components/Layout'
 
@@ -19,6 +19,7 @@ export const FormContact = ({ defaultValue }: { defaultValue?: PayloadType }) =>
   const [saveContact] = editContact();
   const [savePhoneNumber] = editPhoneNumber();
   const [addNumber] = addPhoneNumber();
+  const [removeContact] = deleteContact();
 
   const actionAddContact = async (values: PayloadTypes) => {
     try {
@@ -64,6 +65,17 @@ export const FormContact = ({ defaultValue }: { defaultValue?: PayloadType }) =>
     } catch (err) {
       toast.error('Failed to add phone number')
     }
+  }
+
+  const actionDeleteContact = () => {
+    toast.error('Click to delete', { onClick: async () => {
+      try {
+        await removeContact({ variables: { id: Number(id) } });
+        toast.success('Delete Contact Success', { onClose: () => navigate('/') })
+      } catch (err) {
+        toast.error('Failed to delete contact')
+      }
+    }})
   }
 
   const onSubmit = async (values: PayloadType) => {
@@ -232,6 +244,16 @@ export const FormContact = ({ defaultValue }: { defaultValue?: PayloadType }) =>
               border: none;
               padding: 10px;
             `}>Save</button>
+            <button type='button' className={css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: red;
+              color: #ffffff;
+              outline: none;
+              border: none;
+              padding: 10px;
+            `} onClick={actionDeleteContact}>Delete Contact</button>
           </form>
         );
       }}

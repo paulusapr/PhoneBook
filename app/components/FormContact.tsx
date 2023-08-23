@@ -244,7 +244,7 @@ export const FormContact = ({ defaultValue }: { defaultValue?: PayloadType }) =>
               border: none;
               padding: 10px;
             `}>Save</button>
-            <button type='button' className={css`
+            {id && <button type='button' className={css`
               display: flex;
               align-items: center;
               justify-content: center;
@@ -253,7 +253,7 @@ export const FormContact = ({ defaultValue }: { defaultValue?: PayloadType }) =>
               outline: none;
               border: none;
               padding: 10px;
-            `} onClick={actionDeleteContact}>Delete Contact</button>
+            `} onClick={actionDeleteContact}>Delete Contact</button>}
           </form>
         );
       }}

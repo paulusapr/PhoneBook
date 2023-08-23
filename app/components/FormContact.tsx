@@ -14,7 +14,7 @@ export type PayloadType = {
 
 export const FormContact = ({ defaultValue }: { defaultValue?: PayloadType }) => {
   const { navigate, id } = useLayoutContext();
-  const [totalNumber, setTotalNumber] = useState<number>(defaultValue?.phones.length || 0);
+  const [totalNumber, setTotalNumber] = useState<number>(defaultValue?.phones?.length || 0);
   const [submitContact] = addContact();
   const [saveContact] = editContact();
   const [savePhoneNumber] = editPhoneNumber();

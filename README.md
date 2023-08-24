@@ -29,3 +29,6 @@ hit our application in a browser at http://localhost:3000/
 ## Credits
 - [WPE Hiring GraphQL Tokopedia](https://wpe-hiring.tokopedia.net/)
 - [Vercel](https://vercel.com/)
+
+## Note
+1. Icon Ionicons CDN not working on Vercel
